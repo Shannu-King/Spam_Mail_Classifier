@@ -23,7 +23,7 @@ y_train = y_train.astype('int')
 model = LogisticRegression()
 model.fit(x_train_features, y_train)
 
-@app.route("/", methods=["GET", "POST"])
+@app.route("/", methods=["GET", "POST", "HEAD"])
 def home():
     if request.method == "POST":
         message = request.form["message"]
@@ -31,7 +31,9 @@ def home():
         prediction = model.predict(data)
         result = "Spam" if prediction[0] == 0 else "Ham"
         return render_template("index.html", prediction=result)
+  
     return render_template("index.html", prediction="")
+
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0")
