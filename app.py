@@ -4,10 +4,13 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
+import os
+
 
 app = Flask(__name__)
 
-mail_datas = pd.read_csv('mail_data.csv')
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+mail_datas = pd.read_csv(os.path.join(BASE_DIR, 'mail_data.csv'))
 mails = mail_datas.where((pd.notnull(mail_datas)), '')
 mails.loc[mails['Category'] == 'spam', 'Category'] = 0
 mails.loc[mails['Category'] == 'ham', 'Category'] = 1
@@ -31,4 +34,5 @@ def home():
     return render_template("index.html", prediction="")
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host="0.0.0.0")
+
