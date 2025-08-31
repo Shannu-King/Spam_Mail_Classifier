@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='Styles.css') }}">
+    <title>Email Spam Classifier</title>
+</head>
+<body>
+    <div class="main-container">
+        <h2 class="title">Email Spam Classifier</h2>
+        <form method="POST">
+            <textarea name="message" rows="10" cols="60" placeholder="Enter your email text here....."></textarea><br><br>
+            <button type="submit">Check</button>
+        </form>
+        {% if prediction %}
+            {% if prediction == 'Spam' %}
+                <h3 class="result-spam">
+                    Result: {{ prediction }} 
+                    <br>
+                    <span class="danger-symbol">&#9888;</span> Be careful with this email!
+                </h3>
+            {% else %}
+                <h3 class="result-ham">
+                    Result: {{ prediction }} 
+                    <br>
+                    Nothing to worry about. You can respond to this email.
+                </h3>
+            {% endif %}
+        {% endif %}
+    </div>
+</body>
+</html>

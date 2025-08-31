@@ -1,0 +1,81 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background: url("background.png") no-repeat center center fixed;
+    background-size: cover;
+    font-family: Arial, sans-serif;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.title {
+    color: #FFD700;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+textarea {
+    width: 500px;
+    padding: 15px;
+    border: 1px solid #00BFFF;
+    border-radius: 8px;
+    font-size: 1.2em;
+    box-sizing: border-box;
+    background-color: rgba(255, 255, 255, 0.15);
+    color: white;
+    margin-bottom: 20px;
+}
+
+textarea::placeholder {
+    color: #A9BCCD;
+    opacity: 1;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 1.2em;
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+    background-color: #00BFFF;
+    color: white;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+button:hover {
+    background-color: #008DCC;
+}
+
+.result-ham {
+    margin-top: 20px;
+    font-size: 1.5em;
+    color: #66FF66;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+.result-spam {
+    margin-top: 20px;
+    font-size: 1.5em;
+    color: #FF6666;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+.danger-symbol {
+    font-size: 1.5em;
+    vertical-align: middle;
+    color: #FF6666;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+}
